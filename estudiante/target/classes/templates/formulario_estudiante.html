@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Estudiante</title>
+</head>
+<body>
+    <h2>Agregar Estudiante</h2>
+
+    <form action="#" th:action="@{/agregar}" th:object="${estudiante}" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" th:field="*{nombre}" id="nombre">
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error en Nombre</span>
+        </div>
+        <div>
+            <label for="edad">Edad:</label>
+            <input type="number" th:field="*{edad}" id="edad">
+            <span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}">Error en Edad</span>
+        </div>
+        <div>
+            <label for="curso">Curso:</label>
+                       <input type="text" th:field="*{curso}" id="curso">
+
+            <span th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}">Error en Curso</span>
+        </div>
+        <div>
+            <button type="submit">Agregar</button>
+        </div>
+    </form>
+</body>
+</html>

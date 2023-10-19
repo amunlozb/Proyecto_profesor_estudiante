@@ -1,0 +1,26 @@
+<!-- fragmentos.html -->
+
+<!-- buscador.html -->
+<div th:fragment="buscador">
+    <form method="get" action="/buscar">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+
+<!-- Filtrar por cursos -->
+
+<div th:fragment="filtrar">
+    <form method="get" action="/filtrar">
+        <label for="curso">Curso:</label>
+        <select name="curso" id="curso" required> <!-- Note que hemos eliminado th:field aquí -->
+            <option value="">Selecciona un curso</option>
+            <option th:each="curso : ${cursos}" th:value="${curso}" th:text="${curso}"></option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+</div>
+
+
+

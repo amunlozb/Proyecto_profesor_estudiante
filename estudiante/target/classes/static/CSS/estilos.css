@@ -1,0 +1,12 @@
+body{
+	background-color: black;
+	color: antiquewhite;
+}
+
+/* Esto define la apariencia de cualquier elemento con la clase 'boton-estilo' */
+.boton-estilo {
+    padding: 10px;
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+}

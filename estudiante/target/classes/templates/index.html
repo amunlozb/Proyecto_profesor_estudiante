@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Página Principal</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenido al sistema de gestión de estudiantes</h1>
+    </header>
+
+    <main>
+        <!-- Sección de lista de estudiantes -->
+        <!-- Esta parte verifica si la lista de estudiantes no está vacía -->
+        <div th:if="${estudiantes != null and not #lists.isEmpty(estudiantes)}">
+            <h2>Listado de Estudiantes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Curso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="e : ${estudiantes}">
+                        <td th:text="${e.nombre}">Nombre</td>
+                        <td th:text="${e.edad}">Edad</td>
+                        <td th:text="${e.curso}">Curso</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div th:if="${promedioEdad != null}">
+			<h3>Promedio de Edad: </h3>
+	    	<p th:text="${promedioEdad}"></p>
+	      </div>
+
+
+
+<h2>Buscar estudiante</h2>
+        <!-- Uso de la nueva sintaxis para expresiones de fragmento -->
+        <div th:replace="~{fragmentos :: buscador}"></div>
+
+        <h2>Filtrar estudiantes por curso</h2>
+        <!-- Uso de la nueva sintaxis para expresiones de fragmento -->
+        <div th:replace="~{fragmentos :: filtrar}"></div>
+		
+	  
+	      
+	    <div>
+            <a th:href="@{/agregar}" role="button" class="boton-estilo">Agregar Nuevo Estudiante</a>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Información del pie de página -->
+    </footer>
+
+</body>
+</html>
+
